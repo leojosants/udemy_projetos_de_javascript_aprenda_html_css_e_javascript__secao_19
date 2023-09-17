@@ -9,24 +9,29 @@ function checkPalindrome() {
     const reversed_word_or_phrase = word_or_phrase.split('').reverse().join('');
     const checkSpace = (string) => /\s/g.test(string);
 
-    if (checkSpace(word_or_phrase)) {
-        if (word_or_phrase.toLowerCase() === reversed_word_or_phrase.toLowerCase()) {
-            result.innerHTML = `A frase <strong>"${word_or_phrase}"</strong> é um Palíndromo.`;
-        }
-        else {
-            result.innerHTML = `A frase <strong>"${word_or_phrase}"</strong> não é um Palíndromo.`;
-        }
+    if (word_or_phrase === '') {
+        result.innerHTML = 'Por favor, digite alguma <strong>palavra</strong> ou <strong>frase</strong>.';
     }
     else {
-        if (word_or_phrase.toLowerCase() === reversed_word_or_phrase.toLowerCase()) {
-            result.innerHTML = `A palavra <strong>"${word_or_phrase}"</strong> é um Palíndromo.`;
+        if (checkSpace(word_or_phrase)) {
+            if (word_or_phrase.toLowerCase() === reversed_word_or_phrase.toLowerCase()) {
+                result.innerHTML = `A frase <strong>"${word_or_phrase}"</strong> é um Palíndromo.`;
+            }
+            else {
+                result.innerHTML = `A frase <strong>"${word_or_phrase}"</strong> não é um Palíndromo.`;
+            }
         }
         else {
-            result.innerHTML = `A palavra <strong>"${word_or_phrase}"</strong> não é um Palíndromo.`;
+            if (word_or_phrase.toLowerCase() === reversed_word_or_phrase.toLowerCase()) {
+                result.innerHTML = `A palavra <strong>"${word_or_phrase}"</strong> é um Palíndromo.`;
+            }
+            else {
+                result.innerHTML = `A palavra <strong>"${word_or_phrase}"</strong> não é um Palíndromo.`;
+            };
         };
-    };
 
-    word_or_phrase_input.value = '';
+        word_or_phrase_input.value = '';
+    };
 };
 
 /* */
